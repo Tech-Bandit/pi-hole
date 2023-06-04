@@ -1,4 +1,4 @@
-# Create your PiHole Container using Portainer!
+# Create your Pihole Container using Portainer!
 
 ## Make folders to hold the data
 > ```
@@ -20,13 +20,13 @@ sudo systemctl stop systemd-resolved.service
 - Login
 
 # Make sure you have your portainer repo templates 
-- Go to **Settings** and under **App Templetes**
-- Check **Use external templetes**
+- Go to **Settings** and under **App Templates**
+- Check **Use external templates**
 > Paste this: 
 > `https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Template/portainer-v2.json`
-> - ### Taken from this [github page](https://github.com/SelfhostedPro/selfhosted_templates)
+> - ### Taken from this [GitHub page](https://github.com/SelfhostedPro/selfhosted_templates)
 
-## Go to App Temeplets and look for `pihole`
+## Go to App templates and look for `Pihole`
 
 ### Click and Edit Advanced Settings 
 ```
@@ -34,13 +34,13 @@ sudo systemctl stop systemd-resolved.service
       #Domain port 53 for DNS Queries
       - "53:53/tcp"
       - "53:53/udp"
-      # "67:67/udp"  If you want PiHole to act as your DHCP server you will need to uncomment this
-      #Port 1010 will be the internal port where 80 is the external ( you should change your ports so they dont interfere )
+      # "67:67/udp"  If you want Pihole to act as your DHCP server you will need to uncomment this
+      #Port 1010 will be the internal port where 80 is the external ( you should change your ports so they don't interfere )
       - "1010:80/tcp"
       #Same as port 80 but this is for https traffic
       - "4443:443/tcp"
       # Changing the port 80 to 83 becausse im gonna use port 80 for something else (homer)
-    # Add the path that you created here to store the pihole data inbetween upgrades 
+    # Add the path that you created here to store the Pihole data in-between upgrades 
     # Replace the username with yours
     volumes:
       - '/home/banjo/portainer/etc-pihole/:/etc/pihole/'
@@ -49,12 +49,12 @@ sudo systemctl stop systemd-resolved.service
  - I have commented UDP port 67 out. I let my router handle DHCP
  > After editing click on `deploy the container`
 
-## Network Create (Opional)
+## Network Create (Optional)
 - To create a direct attached macvlan ( edit the parent to your network interface, subnet, gateway and the ip to suit your network )
 
 - sudo docker network create -d macvlan -o parent=enp7s0f1 --subnet=192.168.1.0/24 --gateway=192.168.1.1 --ip-range=192.168.1.5/32 pihole
 
-## Volume Create (Opitonal)
+## Volume Create (Optional)
 - Another way to create a volume is to specify the driver, file type, device and the name of the volume
 
 - sudo docker volume create --driver local \
@@ -78,9 +78,10 @@ sudo systemctl stop systemd-resolved.service
 
 ## Use
 > You can edit your pc's network adapter settings to use the IP address of the server you installed pihole on
-> You can login to your router and edit the DHCP settings to asign the IP address to the devices on your network
+> You can login to your router and edit the DHCP settings to assign the IP address to the devices on your network
 
 ## Documentation
 [Docker CLI reference](https://docs.docker.com/engine/reference/run/)
 
 [Portainer Documentation](https://docs.portainer.io/)
+![image](https://github.com/Tech-Bandit/pi-hole/assets/118858782/0202089c-9a4f-4944-9c9a-cef10191a190)
