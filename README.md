@@ -84,4 +84,3 @@ sudo systemctl stop systemd-resolved.service
 [Docker CLI reference](https://docs.docker.com/engine/reference/run/)
 
 [Portainer Documentation](https://docs.portainer.io/)
-![image](https://github.com/Tech-Bandit/pi-hole/assets/118858782/0202089c-9a4f-4944-9c9a-cef10191a190)
